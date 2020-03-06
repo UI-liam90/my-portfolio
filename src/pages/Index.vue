@@ -96,7 +96,7 @@ export default {
       }
     }
     @media screen and (min-width: 1200px) {
-      grid-template-columns: 720px 1fr;
+      grid-template-columns: 760px 1fr;
     } 
   }
   .portfolio {
