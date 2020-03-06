@@ -11,11 +11,8 @@
 <script>
 export default {
   name: 'Welcome',
-  created () {
+  mounted() {
     window.addEventListener('scroll', this.handleScroll);
-  },
-  destroyed () {
-    window.removeEventListener('scroll', this.handleScroll);
   },
   methods: {
     handleScroll (event) {
