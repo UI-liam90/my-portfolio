@@ -14,11 +14,6 @@
     <div class="posts">
       <PostCard v-for="edge in $page.posts.edges" :key="edge.node.id" :post="edge.node"/>
     </div>
-    <div class="posts">
-      <div v-for="edge in $page.portfolio.edges" :key="edge.node.id">
-        {{edge.node.title}}
-      </div>
-    </div>
 
   </Layout>
 </template>
@@ -50,7 +45,7 @@ query {
         date (format: "D. MMMM YYYY")
         timeToRead
         description
-        cover_image (width: 500, height: 254, blur: 10)
+        cover_image (width: 660, height: 335, blur: 10)
         path
         tags {
           id
@@ -104,7 +99,7 @@ export default {
     flex-direction: column;
     @media screen and (min-width: 600px) {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       grid-gap: rem-calc(30);
       padding: rem-calc(10);
     }
