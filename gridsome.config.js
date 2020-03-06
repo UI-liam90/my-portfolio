@@ -32,8 +32,14 @@ module.exports = {
   siteDescription: 'A simple, hackable & minimalistic starter for Gridsome that uses Markdown for content.',
 
   templates: {
-    Post: '/:title',
-    Portfolio: '/:title',
+    Post: [{
+      path: '/blog/:title',
+      component: './src/templates/Post.vue'
+    }],
+    Portfolio: [{
+      path: '/portfolio/:title',
+      component: './src/templates/Portfolio.vue'
+    }],
     Tag: '/tag/:id',
     PortfolioTag: '/portfolio-tag/:id'
   },
