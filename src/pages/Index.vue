@@ -42,7 +42,7 @@ query {
       }
     }
   }
-  portfolio: allPortfolio(filter: { published: { eq: true }}, limit: 4) {
+  portfolio: allPortfolio(filter: { published: { eq: true }}, limit: 2) {
     edges {
       node {
         id
