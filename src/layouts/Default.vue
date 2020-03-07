@@ -44,7 +44,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   min-height: var(--header-height);
-  padding: 0 calc(var(--space) / 2);
+  padding: 0 rem-calc(30);
   top:0;
   z-index: 10;
   background: var(--bg-color);

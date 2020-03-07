@@ -3,11 +3,9 @@
     <div class="portfolio-card__header">
       <g-image alt="Cover image" v-if="info.cover_image" class="portfolio-card__image" :src="info.cover_image" />
     </div>
-    <div class="portfolio-card__content">
+    <div class="portfolio-card__content" :data-micromodal-trigger="info.id">
       <h2 class="portfolio-card__title" v-html="info.title" />
-      <p class="portfolio-card__description" v-html="info.description" />
-
-      <g-link class="portfolio-card__link" :to="info.path">Link</g-link>
+      <a class="portfolio-card__link">Read More</a>
     </div>
   </div>
 </template>
@@ -22,7 +20,7 @@ export default {
 <style lang="scss">
   .portfolio-card {
     --space: rem-calc(30);
-    margin-bottom: var(--space);
+    margin-bottom: rem-calc(30);
     position: relative;
     background-color: var(--bg-content-color);
     overflow: hidden;
