@@ -36,25 +36,25 @@ export default {
       padding: rem-calc(15);
     }
     &:nth-of-type(2n+2) {
-      box-shadow: 10px 10px 0px 0px #c724b1;
+      box-shadow: 10px 10px 0px 0px var(--rainbow-pink);
     }
     &:nth-of-type(3n+3) {
-      box-shadow: 10px 10px 0px 0px #e4002b;
+      box-shadow: 10px 10px 0px 0px var(--rainbow-red);
     }
     &:nth-of-type(4n+4) {
-      box-shadow: 10px 10px 0px 0px #ff6900;
+      box-shadow: 10px 10px 0px 0px var(--rainbow-orange);
     }
     &:nth-of-type(5n+5) {
-      box-shadow: 10px 10px 0px 0px #f6be00;
+      box-shadow: 10px 10px 0px 0px var(--rainbow-yellow);
     }
     &:nth-of-type(6n+6) {
-      box-shadow: 10px 10px 0px 0px #97d700;
+      box-shadow: 10px 10px 0px 0px var(--rainbow-green);
     }
     &:nth-of-type(7n+7) {
-      box-shadow: 10px 10px 0px 0px #00ab84;
+      box-shadow: 10px 10px 0px 0px var(--rainbow-aqua);
     }
     &:nth-of-type(8n+8) {
-      box-shadow: 10px 10px 0px 0px #00a3e0;
+      box-shadow: 10px 10px 0px 0px var(--rainbow-blue);
     }
   }
 </style>
