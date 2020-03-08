@@ -1,6 +1,7 @@
 // Default variables
 html {
-	--base-font-size: 20px;
+	--base-font-size: 16px;
+	--scrollPos: 0;
 }
 
 // Light default theme
@@ -27,9 +28,6 @@ body {
 
 // Make  things smaller for mobile
 @media screen and (max-width: 650px) {
-	html {
-		--base-font-size: 17px;
-	}
 	body {
 		--space: 1.5rem;
 		--header-height: 60px;
@@ -46,4 +44,34 @@ body[data-theme="dark"] {
  	--body-color: #ced8de;
  	--title-color: #fff;
  	--link-color: #af9cef;
+}
+
+@keyframes load-in {
+	from {opacity: 0;}
+	to {opacity: 1;}
+}
+
+@keyframes rainbow-one {
+	0% {fill: var(--rainbow-aqua)}
+	20% {fill: var(--rainbow-blue)}
+	40% {fill: var(--rainbow-pink)}
+	60% {fill: var(--rainbow-red)}
+	80% {fill: var(--rainbow-orange)}
+	100% {fill: var(--rainbow-yellow)}
+}
+@keyframes rainbow-two {
+	0% {fill: var(--rainbow-blue)}
+	20% {fill: var(--rainbow-pink)}
+	40% {fill: var(--rainbow-red)}
+	60% {fill: var(--rainbow-orange)}
+	80% {fill: var(--rainbow-yellow)}
+	100% {fill: var(--rainbow-green)}
+}
+@keyframes rainbow-three {
+	0% {fill: var(--rainbow-pink)}
+	20% {fill: var(--rainbow-red)}
+	40% {fill: var(--rainbow-orange)}
+	60% {fill: var(--rainbow-yellow)}
+	80% {fill: var(--rainbow-green)}
+	100% {fill: var(--rainbow-aqua)}
 }

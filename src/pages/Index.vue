@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <div class="top-grid">
+    <div class="hero">
       <div class="welcome-section">
         <div class="welcome-section__introduction">
           <h2>
@@ -11,16 +11,17 @@
           </h2>
           <h3><span class="rainbow">{{greetingText()}}</span></h3>
         </div>
-        <svg class="bg-icon" style="fill: var(--rainbow-aqua); width: 5vw; top: 20%; left: 50%"><use xlink:href="#icon-circle"></use></svg>
-        <svg class="bg-icon" style="fill: var(--rainbow-blue); width: 10vw; top: 80%; left: 80%"><use xlink:href="#icon-square"></use></svg>
-        <svg class="bg-icon" style="fill: var(--rainbow-green); width: 12vw; top: 50%; left: 30%"><use xlink:href="#icon-triangle"></use></svg>
       </div>
+      <svg class="bg-icon bg-icon--one"><use xlink:href="#icon-circle"></use></svg>
+      <svg class="bg-icon bg-icon--two"><use xlink:href="#icon-square"></use></svg>
+      <svg class="bg-icon bg-icon--three"><use xlink:href="#icon-triangle"></use></svg>
     </div>
-    <div class="about-me">
+    <div class="about-me-section">
       <h2>A Little Bit About Me</h2>
       <p>I'm a frontend developer, at least that how I try to market myself... I also have experience using PHP, do basic design work in programs like Photoshop, Illustrator and Figma. I'm not that fabled unicorn (yet) but even after 5 years Industry experience and 3 years Academic experience I'm still willing to get my hands dirty in mirade of web development and also learning and improving.</p>
-      <p>My origins started in Norfolk on the east coast of England, but I moved to the North for University and have been living near Manchester ever since. In my free time I like to be the typical nerd. If you're imagining a palesty guy who likes to hangout in a dark and dingly room somewhere, playing that Dugeons & Dragons you've heard of, then you're hitting the ball out of the park :). In addtion to that though I also like to travel, places I have visited in recent years include Florida and Japan, and I hope to visit other location like New Zealand, astralia and Russia when I get the time and resorces to do so.</p>
+      <!-- <p>My origins started in Norfolk on the east coast of England, but I moved to the North for University and have been living near Manchester ever since. In my free time I like to be the typical nerd. If you're imagining a palesty guy who likes to hangout in a dark and dingly room somewhere, playing that Dugeons & Dragons you've heard of, then you're hitting the ball out of the park :). In addtion to that though I also like to travel, places I have visited in recent years include Florida and Japan, and I hope to visit other location like New Zealand, astralia and Russia when I get the time and resorces to do so.</p> -->
     </div>
+
     <div class="portfolio">
       <h4>My most recent work</h4>
       
@@ -28,7 +29,6 @@
         <PortfolioCard v-for="edge in $page.portfolio.edges" :key="edge.node.id" :info="edge.node"/>
       </div>
     </div>
-    
     <!-- List posts -->
     <div class="posts">
       <PostCard v-for="edge in $page.posts.edges" :key="edge.node.id" :post="edge.node"/>
@@ -133,28 +133,12 @@ export default {
 </script>
 
 <style lang="scss">
-  // .top-grid {
-  //   display: flex;
-  //   flex-direction: column;
-  //   padding: rem-calc(0 30 50);
-  //   @media screen and (min-width: 1024px) {
-  //     display: grid;
-  //     grid-template-columns: 1fr 1fr;
-  //     grid-gap: rem-calc(40);
-  //     .welcome {
-  //       grid-column: 1 / 2;
-  //     }
-  //     .portfolio {
-  //       grid-column: 2 / 3;
-  //     }
-  //   }
-  //   @media screen and (min-width: 1200px) {
-  //     grid-template-columns: 760px 1fr;
-  //   } 
-  // }
   .welcome-section {
     --offset: 400px;
-    position: relative;
+    text-align: left;
+    @media screen and (min-width: 600px) {
+      text-align: center;
+    }
     > * {
       position: relative;
       z-index: 10;
@@ -181,7 +165,7 @@ export default {
         @include rfs(55px, font-size);
         animation: load-in 350ms ease-in 850ms 1 normal forwards;
         opacity: 0;
-        background-position-x: calc(var(--offset) + var(--scrollPos));
+        background-position-x: calc(400px + var(--scrollPos));
       }
     }
     h3 {
@@ -196,14 +180,56 @@ export default {
     h4 {
       @include rfs(30px, font-size);
     }
+    .bg-icon {
+      position: absolute;
+      transition: all 250ms ease;
+    }
   }
-    @keyframes load-in {
-    from {opacity: 0;}
-    to {opacity: 1;}
+  .hero {
+    position: relative;
+    .bg-icon {
+      position: absolute;
+      z-index: -1;
+    }
+    .bg-icon--one {
+      fill: var(--rainbow-aqua); 
+      min-width: rem-calc(30);
+      width: 5vw; 
+      max-width: rem-calc(90);
+      top: 5%; 
+      left: 90%;
+      animation: rainbow-one 20s ease-in 0s infinite alternate both;
+    }
+    .bg-icon--two {
+      fill: var(--rainbow-blue); 
+      min-width: rem-calc(25);
+      width: 4vw; 
+      max-width: rem-calc(100);
+      top: 80%; 
+      left: 75%;
+      animation: rainbow-two 20s ease-in 15s infinite alternate both;
+      transform: rotate(105deg);
+    }
+    .bg-icon--three {
+      fill: var(--rainbow-green); 
+      min-width: rem-calc(45);
+      width: 6vw; 
+      max-width: rem-calc(120);
+      top: 40%; 
+      left: 10%;
+      animation: rainbow-three 20s ease-in 25s infinite alternate both;
+      transform: rotate(45deg);
+    }
   }
-  .bg-icon {
-    position: absolute;
-    z-index: 0;
+  .about-me-section {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: left;
+    margin-bottom: rem-calc(30);
+    @media screen and (min-width: 600px) {
+      text-align: center;
+      margin-bottom: rem-calc(50);
+    }
   }
   .portfolio__items {
     display: flex;
