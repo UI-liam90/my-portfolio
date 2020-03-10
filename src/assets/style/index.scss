@@ -6,3 +6,9 @@
 @import 'code';
 @import 'content-box';
 @import 'utils';
+// Required Core Stylesheet
+@import "node_modules/@glidejs/glide/src/assets/sass/glide.core";
+
+// Optional Theme Stylesheet
+@import "node_modules/@glidejs/glide/src/assets/sass/glide.theme";
+

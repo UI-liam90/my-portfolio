@@ -29,6 +29,15 @@
         <PortfolioCard v-for="edge in $page.portfolio.edges" :key="edge.node.id" :info="edge.node"/>
       </div>
     </div>
+
+    <div class="glide">
+      <div class="glide__track" data-glide-el="track">
+        <div class="glide__slides">
+          <PortfolioCard v-for="edge in $page.portfolio.edges" :key="edge.node.id" :info="edge.node"/>
+        </div>
+      </div>
+    </div>
+
     <!-- List posts -->
     <div class="posts">
       <PostCard v-for="edge in $page.posts.edges" :key="edge.node.id" :post="edge.node"/>
@@ -82,7 +91,8 @@ query {
 import PostCard from '~/components/PostCard.vue'
 import PortfolioCard from '~/components/PortfolioCard.vue'
 import Modal from '~/components/Modal.vue'
-import MicroModal from 'micromodal'; 
+import MicroModal from 'micromodal';
+import Glide from '@glidejs/glide';
 
 export default {
   components: {
@@ -96,6 +106,29 @@ export default {
   mounted() {
     MicroModal.init();
     window.addEventListener('scroll', this.handleScroll);
+    var portfolioSlider = new Glide('.glide', {
+      type: "slider",
+      perView: 2,
+      gap: 20,
+      autoplay: 2000,
+      peek: 30,
+      breakpoints: {
+        500: {
+          perView: 1,
+        }
+      }
+    });
+    function sliderInit(x) {
+      if (x.matches) { // If media query matches
+        portfolioSlider.mount();
+      } else {
+      portfolioSlider.destroy();
+      }
+    }
+
+    var x = window.matchMedia("(max-width: 680px)")
+    sliderInit(x);
+    x.addListener(sliderInit);
   },
   methods: {
     handleScroll (event) {
@@ -232,13 +265,21 @@ export default {
     }
   }
   .portfolio__items {
-    display: flex;
-    flex-direction: column;
-    @media screen and (min-width: 600px) {
+    display: none;
+    @media screen and (min-width: 680px) {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       grid-gap: rem-calc(30);
       padding: rem-calc(10);
+    }
+  }
+  .glide {
+    display: block;
+    .glide__slides {
+      padding-right: rem-calc(30);
+    }
+    @media screen and (min-width: 680px) {
+      display: none;
     }
   }
 </style>
