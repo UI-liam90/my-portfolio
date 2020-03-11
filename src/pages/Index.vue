@@ -185,15 +185,6 @@ export default {
       background-position-x: var(--scrollPos);
       padding-bottom: rem-calc(10);
     }
-span.rainbow2 {
-      display: inline;
-      background-image: url(../Spectrum2.svg);
-      background-repeat: repeat-x;
-      background-size: 100vw 0.2em;
-      background-position: left bottom 10%;
-      background-position-x: var(--scrollPos);
-      padding-bottom: rem-calc(10);
-    }
     h2 {
       @include rfs(100px, font-size);
       &:nth-of-type(1) span {
