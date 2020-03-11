@@ -7,9 +7,9 @@
             <span class="rainbow" v-html="welcomeText()"/>
           </h2>
           <h2 class="smaller">
-            <span class="rainbow">My Name is Liam</span>
+            <span class="rainbow2">{{greetingText()}}</span>
           </h2>
-          <h3><span class="rainbow">{{greetingText()}}</span></h3>
+          <h3><span class="rainbow">My Name is Liam</span></h3>
         </div>
       </div>
       <svg class="bg-icon bg-icon--one"><use xlink:href="#icon-circle"></use></svg>
@@ -179,6 +179,15 @@ export default {
     span.rainbow {
       display: inline;
       background-image: url(../spectrum.svg);
+      background-repeat: repeat-x;
+      background-size: 100vw 0.2em;
+      background-position: left bottom 10%;
+      background-position-x: var(--scrollPos);
+      padding-bottom: rem-calc(10);
+    }
+span.rainbow2 {
+      display: inline;
+      background-image: url(../Spectrum2.svg);
       background-repeat: repeat-x;
       background-size: 100vw 0.2em;
       background-position: left bottom 10%;
