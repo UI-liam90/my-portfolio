@@ -122,7 +122,7 @@ export default {
       if (x.matches) { // If media query matches
         portfolioSlider.mount();
       } else {
-      portfolioSlider.destroy();
+        portfolioSlider.destroy();
       }
     }
 
