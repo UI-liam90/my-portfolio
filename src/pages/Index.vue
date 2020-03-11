@@ -7,7 +7,7 @@
             <span class="rainbow" v-html="welcomeText()"/>
           </h2>
           <h2 class="smaller">
-            <span class="rainbow2">{{greetingText()}}</span>
+            <span class="rainbow">{{greetingText()}}</span>
           </h2>
           <h3><span class="rainbow">My Name is Liam</span></h3>
         </div>
