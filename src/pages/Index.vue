@@ -7,23 +7,18 @@
             <span class="rainbow" v-html="welcomeText()"/>
           </h2>
           <h2 class="smaller">
-            <span class="rainbow">{{greetingText()}}</span>
+            <span class="rainbow">My Name is Liam</span>
           </h2>
-          <h3><span class="rainbow">My Name is Liam</span></h3>
+          <h3><span class="rainbow">{{greetingText()}}</span></h3>
         </div>
       </div>
       <svg class="bg-icon bg-icon--one"><use xlink:href="#icon-circle"></use></svg>
       <svg class="bg-icon bg-icon--two"><use xlink:href="#icon-square"></use></svg>
       <svg class="bg-icon bg-icon--three"><use xlink:href="#icon-triangle"></use></svg>
     </div>
-    <div class="about-me-section">
-      <h2>A Little Bit About Me</h2>
-      <p>I'm a frontend developer, at least that how I try to market myself... I also have experience using PHP, do basic design work in programs like Photoshop, Illustrator and Figma. I'm not that fabled unicorn (yet) but even after 5 years Industry experience and 3 years Academic experience I'm still willing to get my hands dirty in mirade of web development and also learning and improving.</p>
-      <!-- <p>My origins started in Norfolk on the east coast of England, but I moved to the North for University and have been living near Manchester ever since. In my free time I like to be the typical nerd. If you're imagining a palesty guy who likes to hangout in a dark and dingly room somewhere, playing that Dugeons & Dragons you've heard of, then you're hitting the ball out of the park :). In addtion to that though I also like to travel, places I have visited in recent years include Florida and Japan, and I hope to visit other location like New Zealand, astralia and Russia when I get the time and resorces to do so.</p> -->
-    </div>
 
     <div class="portfolio">
-      <h4>My most recent work</h4>
+      <h3>Checkout some of my recent work</h3>
       
       <div class="portfolio__items">
         <PortfolioCard v-for="edge in $page.portfolio.edges" :key="edge.node.id" :info="edge.node"/>
@@ -194,7 +189,7 @@ export default {
       &:nth-of-type(2) {
         margin-bottom: 50px;
       }
-      &:nth-of-type(2) span {
+      &:nth-of-type(2) span, &.smaller span {
         @include rfs(55px, font-size);
         animation: load-in 350ms ease-in 850ms 1 normal forwards;
         opacity: 0;
@@ -254,16 +249,6 @@ export default {
       transform: rotate(45deg);
     }
   }
-  .about-me-section {
-    max-width: 1000px;
-    margin: 0 auto;
-    text-align: left;
-    margin-bottom: rem-calc(30);
-    @media screen and (min-width: 600px) {
-      text-align: center;
-      margin-bottom: rem-calc(50);
-    }
-  }
   .portfolio__items {
     display: none;
     @media screen and (min-width: 680px) {
@@ -271,6 +256,7 @@ export default {
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       grid-gap: rem-calc(30);
       padding: rem-calc(10);
+      max-width: rem-calc(1590);
     }
   }
   .glide {

@@ -28,8 +28,8 @@ module.exports = {
       addStyleResource(config.module.rule('scss').oneOf(type))
     })
 	},
-  siteName: 'Gridsome Blog Starter',
-  siteDescription: 'A simple, hackable & minimalistic starter for Gridsome that uses Markdown for content.',
+  siteName: 'The marvelous site of Liam Wright ',
+  siteDescription: "Liam Wright's portfolio, and his other general musing on Web development",
 
   templates: {
     Post: [{
