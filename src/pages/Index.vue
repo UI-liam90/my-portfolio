@@ -20,11 +20,17 @@
     <div id="about" class="about-me">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none" width="100%" height="200px" style="margin-bottom:-10px"><path fill="var(--rainbow-blue)" fill-opacity="1" d="M0,224L60,213.3C120,203,240,181,360,154.7C480,128,600,96,720,117.3C840,139,960,213,1080,229.3C1200,245,1320,203,1380,181.3L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
       <div class="about-me-inner">
-        <div class="container">
-          <h2>A Little Bit About Me</h2>
-          <p>I'm a frontend developer, at least that how I try to market myself... I also have experience using PHP, do basic design work in programs like Photoshop, Illustrator and Figma. I'm not that fabled unicorn (yet) but even after 5 years Industry experience and 3 years Academic experience I'm still willing to get my hands dirty in mirade of web development and also learning and improving.</p>
+        <div class="container about-me-grid">
+          <div class="text">
+            <h2>A Little Bit About Me</h2>
+            <p>I'm a frontend developer, at least that how I try to market myself... I also have experience using PHP, do basic design work in programs like Photoshop, Illustrator and Figma. I'm not that fabled unicorn (yet) but even after 5 years Industry experience and 3 years Academic experience I'm still willing to get my hands dirty in mirade of web development and also learning and improving.</p>
+            
+            <p>My origins started in Norfolk on the east coast of England, but I moved to the North for University and have been living near Manchester ever since. In my free time I like to be the typical nerd. If you are imagining a pasty guy who likes to hang out in a dark and dingy room somewhere, playing that Dungeons & Dragons you've heard of, then you're hitting the ball out of the park :). In addition to that though I also like to travel, places I have visited in recent years include Florida and Japan, and I hope to visit other location like New Zealand, Australia and Russia when I get the time and resources to do so.</p>
+          </div>
+          <div class="image">
+            <g-image src="~/assets/images/rainbow-me.png" width="500"/>
+          </div>
           
-          <p>My origins started in Norfolk on the east coast of England, but I moved to the North for University and have been living near Manchester ever since. In my free time I like to be the typical nerd. If you are imagining a pasty guy who likes to hang out in a dark and dingy room somewhere, playing that Dungeons & Dragons you've heard of, then you're hitting the ball out of the park :). In addition to that though I also like to travel, places I have visited in recent years include Florida and Japan, and I hope to visit other location like New Zealand, Australia and Russia when I get the time and resources to do so.</p>
         </div>
       </div>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none" width="100%" height="200px" style="margin-top:-20px"><path fill="var(--rainbow-blue)" fill-opacity="1" d="M0,224L60,213.3C120,203,240,181,360,154.7C480,128,600,96,720,117.3C840,139,960,213,1080,229.3C1200,245,1320,203,1380,181.3L1440,160L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path></svg>
@@ -49,9 +55,9 @@
     </div>
 
     <!-- List posts -->
-    <div class="posts">
+    <!-- <div class="posts">
       <PostCard v-for="edge in $page.posts.edges" :key="edge.node.id" :post="edge.node"/>
-    </div>
+    </div> -->
     <Modal v-for="edge in $page.portfolio.edges" :key="edge.node.id" :info="edge.node"/>
   </Layout>
 </template>
@@ -270,6 +276,23 @@ export default {
       margin: 0;
       padding: 30px 15px;
       background-color: var(--rainbow-blue);
+    }
+  }
+  .about-me-grid {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-gap: 20px;
+    @media screen and (min-width: 800px) {
+      grid-template-columns: 60% 40%;
+    }
+    .image {
+      border-radius: 50%;
+      height: 360px;
+      max-width: 500px;
+      overflow: hidden;
+      img {
+        border-radius: 50%;
+      }
     }
   }
   .portfolio__items {
