@@ -35,6 +35,20 @@ export default {
     .portfolio-card__content {
       padding: rem-calc(15);
     }
+    .portfolio-card__link {
+      display: inline-block;
+      background-color: var(--rainbow-aqua);
+      color: var(--bg-content-color);
+      padding: rem-calc(5 15);
+      border-radius: rem-calc(30);
+      border: 2px solid var(--rainbow-aqua);
+      transition: all 250ms ease-in-out;
+      cursor: pointer;
+      &:hover, &:focus {
+        background: transparent;
+        color: var(--rainbow-aqua);
+      }
+    }
     &:nth-of-type(2n+2) {
       box-shadow: 10px 10px 0px 0px var(--rainbow-pink);
     }
