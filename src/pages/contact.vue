@@ -28,12 +28,25 @@ export default {
     min-height: 75vh;
     a {
       font-family: 'Luckiest Guy', cursive;
-      @include rfs(75px, font-size);
+      @include rfs(30px, font-size);
       color: var(--rainbow-orange);
       transition: all 350ms ease;
       text-decoration: none;
+      word-break: break-all;
       &:hover {
         color: var(--rainbow-aqua);
+      }
+      @media screen and (min-width: 500px){
+        @include rfs(45px, font-size);
+      }
+      @media screen and (min-width: 800px){
+        @include rfs(70px, font-size);
+      }
+    }
+    p {
+      font-size: rem-calc(12);
+      @media screen and (min-width: 500px){
+        @include rfs(16px, font-size);
       }
     }
   }
